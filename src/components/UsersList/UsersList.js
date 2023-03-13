@@ -1,21 +1,20 @@
 import UsersListItem from "./UsersListItem/UsersLIstItem";
+import styled from "styled-components";
+
+const UsersLIstStyled = styled.ul`
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+`;
 
 const UsersList = ({ usersData }) => {
   return (
-    <div className="Users-list">
-      <ul
-        style={{
-          listStyle: "none",
-          display: "flex",
-          flexDirection: "column",
-          padding: 0,
-        }}
-      >
-        {usersData.map((user, index) => (
-          <UsersListItem {...user} key={`${user.id}-${index}`} />
-        ))}
-      </ul>
-    </div>
+    <UsersLIstStyled>
+      {usersData.map((user, index) => (
+        <UsersListItem {...user} key={`${user.id}-${index}`} />
+      ))}
+    </UsersLIstStyled>
   );
 };
 

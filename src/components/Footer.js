@@ -1,22 +1,20 @@
+import {
+  FooterOuterStyled,
+  FooterInnerStyled,
+} from "../styles/NavFooterStyles";
+
 const Footer = () => {
   return (
-    <footer
-      style={{
-        backgroundColor: "#EE6E73",
-        display: "flex",
-        justifyContent: "space-around",
-        alignItems: "center",
-        color: "#fff",
-      }}
-    >
-      <div>
-        <h4>Copy 2023 CopyRight Stefan Kostic</h4>
-      </div>
-
-      <div>
-        <h4>Last Update: 5 miuntes ago</h4>
-      </div>
-    </footer>
+    <FooterOuterStyled id="footer">
+      <FooterInnerStyled>
+        <div>
+          <h5>Copy 2023 Copyright Stefan Kostic BIT</h5>
+        </div>
+        <div>
+          <h5>Last Update: 5 miuntes ago</h5>
+        </div>
+      </FooterInnerStyled>
+    </FooterOuterStyled>
   );
 };
 

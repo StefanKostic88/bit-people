@@ -1,12 +1,11 @@
 import { Outlet } from "react-router-dom";
 import MainNav from "../components/MainNav";
 import Footer from "../components/Footer";
-import { useState } from "react";
 
-const Root = ({ setOnGridIsVisible }) => {
+const Root = ({ setOnGridIsVisible, onRefresh }) => {
   return (
     <div>
-      <MainNav onGridSet={setOnGridIsVisible} />
+      <MainNav onGridSet={setOnGridIsVisible} onRefresh={onRefresh} />
       <Outlet />
       <Footer />
     </div>

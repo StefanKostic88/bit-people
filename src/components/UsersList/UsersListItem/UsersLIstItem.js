@@ -1,47 +1,47 @@
 import { HiEnvelope, HiCake } from "react-icons/hi2";
+import styled from "styled-components";
+
+const UsersLIstItemStyled = styled.li`
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  box-shadow: 0 0 0 1px #c7c7c7;
+  padding: 10px 15px;
+`;
+
+const ListImageStyled = styled.img`
+  border-radius: 50%;
+`;
+
+const LIstItemContentStyled = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+`;
+
+const LIstContentItemStyled = styled.span`
+  display: flex;
+  align-items: center;
+`;
 
 const UsersListItem = ({ userName, email, birthDate, img }) => {
   return (
-    <li
-      style={{
-        display: "flex",
-        alignItems: "center",
-        gap: "20px",
-        boxShadow: "0 0 0 1px #c7c7c7",
-        padding: "10px 15px",
-      }}
-    >
-      <div style={{ alignSelf: "flex-start" }}>
-        <img
-          style={{
-            borderRadius: "50%",
-          }}
-          src={img}
-          alt={`User: ${userName}`}
-        />
+    <UsersLIstItemStyled>
+      <div>
+        <ListImageStyled src={img} alt={`User: ${userName}`} />
       </div>
-      <div style={{ display: "flex", flexDirection: "column", gap: "10px" }}>
-        <span> {userName}</span>
-        <span
-          style={{
-            display: "flex",
-            alignItems: "center",
-          }}
-        >
+      <LIstItemContentStyled>
+        <LIstContentItemStyled> {userName}</LIstContentItemStyled>
+        <LIstContentItemStyled>
           <HiEnvelope />
           email: {email}
-        </span>
-        <span
-          style={{
-            display: "flex",
-            alignItems: "center",
-          }}
-        >
+        </LIstContentItemStyled>
+        <LIstContentItemStyled>
           <HiCake />
           {birthDate}.
-        </span>
-      </div>
-    </li>
+        </LIstContentItemStyled>
+      </LIstItemContentStyled>
+    </UsersLIstItemStyled>
   );
 };
 

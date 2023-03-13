@@ -1,28 +1,48 @@
-import { useState } from "react";
-import { Link } from "react-router-dom";
+import {
+  MainOuterNavStled,
+  MainNavStyled,
+  NavBarStyled,
+  NavLInkStyled,
+  LinkStyled,
+  LogoStyled,
+} from "../styles/NavFooterStyles";
 
-const MainNav = ({ onGridSet }) => {
+import { useLocation } from "react-router-dom";
+import { MdViewModule, MdViewList, MdRefresh } from "react-icons/md";
+import { useState, useEffect } from "react";
+
+const MainNav = ({ onGridSet, onRefresh }) => {
+  const [gridIsVisible, setGridIsVisible] = useState(false);
+
+  const path = useLocation();
+
   const onClickHandler = () => {
     onGridSet();
+    setGridIsVisible((prev) => !prev);
+  };
+
+  const onRefreshHandler = () => {
+    onRefresh();
   };
 
   return (
-    <div
-      style={{
-        backgroundColor: "#EE6E73",
-        display: "flex",
-        justifyContent: "space-around",
-        alignItems: "center",
-        color: "#fff",
-      }}
-    >
-      <div>Logo</div>
-      <ul style={{ display: "flex", listStyle: "none", gap: "25px" }}>
-        <Link to="/about">About</Link>
-        <li>Reload</li>
-        <li onClick={onClickHandler}>Grid</li>
-      </ul>
-    </div>
+    <MainOuterNavStled id="main-nav">
+      <MainNavStyled>
+        <LogoStyled to="/">Bit People</LogoStyled>
+
+        {path.pathname === "/about" ? null : (
+          <NavBarStyled>
+            <NavLInkStyled to="/about">About</NavLInkStyled>
+            <LinkStyled onClick={onRefreshHandler}>
+              <MdRefresh />
+            </LinkStyled>
+            <LinkStyled onClick={onClickHandler}>
+              {gridIsVisible ? <MdViewList /> : <MdViewModule />}
+            </LinkStyled>
+          </NavBarStyled>
+        )}
+      </MainNavStyled>
+    </MainOuterNavStled>
   );
 };
 
