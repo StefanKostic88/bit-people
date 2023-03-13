@@ -16,6 +16,7 @@ const UsersGridLIst = ({ usersData }) => {
           <div style={{ position: "relative", width: "100%" }}>
             <img
               src={user.imgLarge}
+              alt={`User: ${user.userName}`}
               style={{ objectFit: "cover", width: "100%" }}
             />
             <h3

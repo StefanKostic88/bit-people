@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { ContentWpraperStyled } from "../styles/UiStyles";
 
 const ContentWraper = (props) => {
   const [mainNavHeight, setMainNavHeight] = useState(0);
@@ -7,18 +8,12 @@ const ContentWraper = (props) => {
   useEffect(() => {
     setMainNavHeight(() => document.getElementById("main-nav").clientHeight);
     setFooterHeight(() => document.getElementById("footer").clientHeight);
-  });
+  }, []);
 
   return (
-    <main
-      style={{
-        width: "1200px",
-        margin: "0 auto",
-        minHeight: `calc(97vh - ${mainNavHeight + footerHeight}px)`,
-      }}
-    >
+    <ContentWpraperStyled {...{ mainNavHeight, footerHeight }}>
       {props.children}
-    </main>
+    </ContentWpraperStyled>
   );
 };
 export default ContentWraper;

@@ -14,3 +14,16 @@ export const InputStyled = styled.input`
   padding: 10px 0;
   outline: none;
 `;
+
+export const ContentWpraperStyled = styled.main`
+  max-width: ${({ theme }) => theme.containerWidth};
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  min-height: calc(
+    100vh - ${(props) => props.mainNavHeight + props.footerHeight}px
+  );
+  @media (max-width: 1225px) {
+    width: 90%;
+  }
+`;

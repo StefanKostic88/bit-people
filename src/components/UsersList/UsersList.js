@@ -9,6 +9,7 @@ const UsersLIstStyled = styled.ul`
 `;
 
 const UsersList = ({ usersData }) => {
+  console.log(usersData);
   return (
     <UsersLIstStyled>
       {usersData.map((user, index) => (

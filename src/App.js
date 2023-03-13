@@ -7,52 +7,23 @@ import { theme } from "./Theme";
 import Root from "./pages/Root";
 import HomePage from "./pages/HomePage";
 import AboutPage from "./pages/AboutPage";
+import Loader from "./components/Loader/Loader";
 
-const convertToStars = (str) => {
-  let newStr = "";
-  for (let i = 0; i < str.length; i++) {
-    newStr += "*";
-  }
-  return newStr;
-};
-
-const hideEmail = (str1, str2, str3, cb) => {
-  return str1 + cb(str2) + str3;
-};
+import { hideEmail, generateData } from "./assets/helpers/helperFunctions.js";
 
 function App() {
   const [gridIsVisible, setGridIsVisible] = useState(false);
   const [users, setUsers] = useState([]);
+  const [isLoading, setIsloading] = useState(true);
+  const [timer, setTimer] = useState(false);
 
   const getUsers = async () => {
     const res = await fetch("https://randomuser.me/api/?results=15");
     const data = await res.json();
-
-    const usersArr = data.results.map((user) => {
-      return {
-        userName: `${user.name.first} ${user.name.last}`,
-        img: user.picture.thumbnail,
-        imgLarge: user.picture.large,
-        id: user.id.value,
-        gender: user.gender,
-        email: hideEmail(
-          user.email.slice(0, 3),
-          user.email.slice(3, user.email.indexOf("@")),
-          user.email.slice(user.email.indexOf("@")),
-          convertToStars
-        ),
-        birthDate: new Date(user.dob.date)
-          .toLocaleString("en-US", {
-            year: "numeric",
-            month: "2-digit",
-            day: "2-digit",
-          })
-          .split("/")
-          .join("."),
-      };
-    });
-
+    const usersArr = data.results.map((user) => generateData(user, hideEmail));
+    setIsloading(() => false);
     setUsers(() => [...usersArr]);
+    setTimer(() => true);
   };
 
   const setGrid = () => {
@@ -60,21 +31,40 @@ function App() {
   };
 
   const refreshHandler = () => {
-    getUsers();
+    setIsloading(() => true);
+    setTimer(() => false);
+    setTimeout(() => {
+      getUsers();
+      setTimeout(() => {
+        setIsloading(() => false);
+        setTimer(() => true);
+      }, 500);
+    }, 1000);
   };
 
   useEffect(() => {
+    setIsloading(() => true);
     getUsers();
   }, []);
 
   const router = createBrowserRouter([
     {
       path: "/",
-      element: <Root setOnGridIsVisible={setGrid} onRefresh={refreshHandler} />,
+      element: (
+        <Root
+          setOnGridIsVisible={setGrid}
+          onRefresh={refreshHandler}
+          lastUpdate={timer}
+        />
+      ),
       children: [
         {
           path: "/",
-          element: <HomePage onGridIsVisible={gridIsVisible} users={users} />,
+          element: isLoading ? (
+            <Loader />
+          ) : (
+            <HomePage onGridIsVisible={gridIsVisible} users={users} />
+          ),
         },
         {
           path: "/about",

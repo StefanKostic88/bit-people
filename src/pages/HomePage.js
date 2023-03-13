@@ -5,20 +5,15 @@ import UsersGridLIst from "../components/UsersGridList/UsersGridLIst";
 import Error from "../components/Error/Error";
 import CostumInput from "../components/ui/CostumInput";
 import UsersNumber from "../components/UsersNumber";
-
-const getUsersNum = (arr, gender) => {
-  return arr.filter((user) => user.gender === gender).length;
-};
+import { getUsersNum } from "../assets/helpers/helperFunctions.js";
 
 const HomePage = ({ onGridIsVisible, users }) => {
   const [filteredUsers, setFilteredUsers] = useState([...users]);
-
   const [maleUsers, setMaleUsers] = useState(0);
   const [femlaUsers, setFemaleUsers] = useState(0);
 
   const onChangehandler = (e) => {
     const convertToLower = e.target.value.toLowerCase();
-
     setFilteredUsers(() =>
       users.filter((user) =>
         user.userName.toLowerCase().startsWith(convertToLower)
@@ -46,8 +41,9 @@ const HomePage = ({ onGridIsVisible, users }) => {
         placeholder="Search users"
         type="text"
       />
-
-      <UsersNumber maleUsers={maleUsers} femlaUsers={femlaUsers} />
+      {filteredUsers.length === 0 ? null : (
+        <UsersNumber maleUsers={maleUsers} femlaUsers={femlaUsers} />
+      )}
       {!onGridIsVisible ? (
         filteredUsers.length === 0 ? (
           <Error />
