@@ -4,6 +4,7 @@ const ContentWraper = (props) => {
       style={{
         width: "1200px",
         margin: "0 auto",
+        minHeight: "86vh",
       }}
     >
       {props.children}

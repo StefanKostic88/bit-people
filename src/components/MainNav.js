@@ -1,4 +1,11 @@
-const MainNav = () => {
+import { useState } from "react";
+import { Link } from "react-router-dom";
+
+const MainNav = ({ onGridSet }) => {
+  const onClickHandler = () => {
+    onGridSet();
+  };
+
   return (
     <div
       style={{
@@ -11,9 +18,9 @@ const MainNav = () => {
     >
       <div>Logo</div>
       <ul style={{ display: "flex", listStyle: "none", gap: "25px" }}>
-        <li>About</li>
+        <Link to="/about">About</Link>
         <li>Reload</li>
-        <li>Grid</li>
+        <li onClick={onClickHandler}>Grid</li>
       </ul>
     </div>
   );
