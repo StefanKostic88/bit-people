@@ -6,10 +6,10 @@ const UsersLIstStyled = styled.ul`
   display: flex;
   flex-direction: column;
   padding: 0;
+  margin: 2rem 0;
 `;
 
 const UsersList = ({ usersData }) => {
-  console.log(usersData);
   return (
     <UsersLIstStyled>
       {usersData.map((user, index) => (

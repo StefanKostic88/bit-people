@@ -1,11 +1,15 @@
 import { useEffect, useState } from "react";
-import ContentWraper from "../components/ContentWraper";
-import UsersList from "../components/UsersList/UsersList";
-import UsersGridLIst from "../components/UsersGridList/UsersGridLIst";
-import Error from "../components/Error/Error";
-import CostumInput from "../components/ui/CostumInput";
-import UsersNumber from "../components/UsersNumber";
-import { getUsersNum } from "../assets/helpers/helperFunctions.js";
+
+import {
+  Error,
+  UsersNumber,
+  UsersList,
+  UsersGridLIst,
+  ContentWraper,
+  CostumInput,
+} from "../../components";
+
+import { getUsersNum } from "../../assets/helpers/helperFunctions.js";
 
 const HomePage = ({ onGridIsVisible, users }) => {
   const [filteredUsers, setFilteredUsers] = useState([...users]);

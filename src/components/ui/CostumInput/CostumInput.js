@@ -1,6 +1,6 @@
 import React from "react";
 import { HiSearch } from "react-icons/hi";
-import { InputContainer, InputStyled } from "../../styles/UiStyles";
+import { InputContainer, InputStyled } from "../UiStyles";
 
 const CostumInput = ({ onChangehandler, placeholder, type }) => {
   return (

@@ -1,15 +1,10 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { useEffect, useState } from "react";
-
 import { ThemeProvider } from "styled-components";
-
 import { theme } from "./Theme";
-import Root from "./pages/Root";
-import HomePage from "./pages/HomePage";
-import AboutPage from "./pages/AboutPage";
-import Loader from "./components/Loader/Loader";
-import UserDisplayPage from "./pages/UserDisplayPage";
-
+import GlobalStyles from "./assets/styles/Global";
+import { Root, HomePage, AboutPage, UserDisplayPage } from "./pages";
+import { Loader } from "./components";
 import { hideEmail, generateData } from "./assets/helpers/helperFunctions.js";
 
 function App() {
@@ -77,9 +72,12 @@ function App() {
   ]);
 
   return (
-    <ThemeProvider theme={theme}>
-      <RouterProvider router={router}></RouterProvider>
-    </ThemeProvider>
+    <>
+      <GlobalStyles />
+      <ThemeProvider theme={theme}>
+        <RouterProvider router={router}></RouterProvider>
+      </ThemeProvider>
+    </>
   );
 }
 

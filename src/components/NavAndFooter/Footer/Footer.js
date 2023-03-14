@@ -1,8 +1,5 @@
 import { useEffect, useState } from "react";
-import {
-  FooterOuterStyled,
-  FooterInnerStyled,
-} from "../styles/NavFooterStyles";
+import { FooterOuterStyled, FooterInnerStyled } from "../NavFooterStyles";
 
 const Footer = ({ lastUpdate }) => {
   const [seconds, setSeconds] = useState(0);

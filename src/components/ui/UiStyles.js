@@ -13,6 +13,10 @@ export const InputStyled = styled.input`
   border-bottom: 1px solid black;
   padding: 10px 0;
   outline: none;
+  font-size: 18px;
+  &:focus {
+    border-bottom: none;
+  }
 `;
 
 export const ContentWpraperStyled = styled.main`

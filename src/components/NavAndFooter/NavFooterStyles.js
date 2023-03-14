@@ -27,9 +27,7 @@ export const FooterOuterStyled = styled.footer`
   justify-content: center;
   color: ${({ theme }) => theme.textColorPrimary};
   background-color: ${({ theme }) => theme.backgroundPrimary};
-  // position: fixed;
-  // bottom: 0;
-  // width: 100%;
+  padding: 1rem 0;
 `;
 
 export const FooterInnerStyled = styled(InnerStyledDiv)`

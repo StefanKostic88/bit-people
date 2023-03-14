@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { ContentWpraperStyled } from "../styles/UiStyles";
+import { ContentWpraperStyled } from "../UiStyles";
 
 const ContentWraper = (props) => {
   const [mainNavHeight, setMainNavHeight] = useState(0);

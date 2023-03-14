@@ -5,11 +5,11 @@ import {
   NavLInkStyled,
   LinkStyled,
   LogoStyled,
-} from "../styles/NavFooterStyles";
+} from "../NavFooterStyles";
 
 import { useLocation } from "react-router-dom";
 import { MdViewModule, MdViewList, MdRefresh } from "react-icons/md";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
 const MainNav = ({ onGridSet, onRefresh }) => {
   const [gridIsVisible, setGridIsVisible] = useState(false);

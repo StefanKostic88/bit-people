@@ -1,4 +1,4 @@
-import ContentWraper from "../components/ContentWraper";
+import { ContentWraper } from "../../components";
 
 const AboutPage = () => {
   return (

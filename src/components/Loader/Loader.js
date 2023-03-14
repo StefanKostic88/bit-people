@@ -1,5 +1,5 @@
 import React from "react";
-import ContentWraper from "../ContentWraper";
+import ContentWraper from "../ui/ContentWraper/ContentWraper";
 
 import {
   LoaderOuterContainerStyled,
@@ -13,7 +13,7 @@ import {
   CubeSevenStyled,
   CubeEightStyled,
   CubeNineStyled,
-} from "../../styles/LoaderStyles";
+} from "./LoaderStyles";
 
 const Loader = () => {
   return (

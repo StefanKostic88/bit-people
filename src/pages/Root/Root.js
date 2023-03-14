@@ -1,6 +1,6 @@
 import { Outlet } from "react-router-dom";
-import MainNav from "../components/MainNav";
-import Footer from "../components/Footer";
+
+import { MainNav, Footer } from "../../components";
 
 const Root = ({ setOnGridIsVisible, onRefresh, lastUpdate }) => {
   return (

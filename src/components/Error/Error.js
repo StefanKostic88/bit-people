@@ -1,9 +1,6 @@
 import React from "react";
 import { HiOutlineFaceFrown } from "react-icons/hi2";
-import {
-  ErrorContainerStyled,
-  ErrorHeadingStyled,
-} from "../../styles/ErrorStyles";
+import { ErrorContainerStyled, ErrorHeadingStyled } from "./ErrorStyles";
 
 const Error = () => {
   return (
