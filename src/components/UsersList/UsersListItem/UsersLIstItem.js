@@ -37,7 +37,6 @@ const LIstContentItemStyled = styled.span`
 `;
 
 const UsersListItem = ({ userName, email, birthDate, img, gender }) => {
-  console.log(gender);
   return (
     <UsersLIstItemStyled gender={gender}>
       <div>

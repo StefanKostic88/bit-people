@@ -8,6 +8,7 @@ import Root from "./pages/Root";
 import HomePage from "./pages/HomePage";
 import AboutPage from "./pages/AboutPage";
 import Loader from "./components/Loader/Loader";
+import UserDisplayPage from "./pages/UserDisplayPage";
 
 import { hideEmail, generateData } from "./assets/helpers/helperFunctions.js";
 
@@ -70,6 +71,7 @@ function App() {
           path: "/about",
           element: <AboutPage />,
         },
+        { path: "/users/:user", element: <UserDisplayPage /> },
       ],
     },
   ]);

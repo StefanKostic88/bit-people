@@ -33,12 +33,14 @@ const Footer = ({ lastUpdate }) => {
           <h5>Copy 2023 Copyright Stefan Kostic BIT</h5>
         </div>
         <div>
-          <h5>
-            Last Update:
-            {minutes
-              ? ` ${minutes} ${minutes <= 1 ? "minute" : "minutes"} ago`
-              : ` ${seconds} ${seconds <= 1 ? "second" : "seconds"} ago`}
-          </h5>
+          {lastUpdate && (
+            <h5>
+              Last Update:
+              {minutes
+                ? ` ${minutes} ${minutes <= 1 ? "minute" : "minutes"} ago`
+                : ` ${seconds} ${seconds <= 1 ? "second" : "seconds"} ago`}
+            </h5>
+          )}
         </div>
       </FooterInnerStyled>
     </FooterOuterStyled>
